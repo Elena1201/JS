@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.4邏輯運算子</title>
+</head>
+<body>
+    <div id="info">my info</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        //可以用來做布林值的轉換
+        //ex: 3是true
+        //!3 = 負*正得負 = false
+        //!!3 = 負*負*正得正 = true
+
+        console.log(!! 0);
+        console.log(!! undefined);
+        console.log(!! null);
+        console.log(!! NaN);//not a number
+
+        //快捷運算子,偷懶運算子
+        //&& 且  || or
+        console.log(3 && 2);//第一個數字3為true 會再繼續判斷後面的值2
+        console.log(0 && 2);//因為第一個值0 已經是false所以不會再判斷後的值了
+        console.log(0 && 2 && 3 && 4);
+
+        let a, b;
+
+        b= 0 && (a=7); 
+        console.log(a , b);//undefined , 0
+
+        a = undefined;
+        b = undefined;
+        
+        b = 1 && (a=7);
+        console.log(a , b);//7, 7
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.8字串常用方法</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const info = $("#info");
+        const str = "a陳bcd陳陳陳陳陳e陳2695"
+
+
+        info.append(str.charAt(0) + "<br>");
+        info.append(str.charCodeAt(0) + "<br>");
+        info.append(str.charAt(1) + "<br>");
+        info.append(str.charCodeAt(1) + "<br>");
+        info.append(String.fromCharCode(38517) + "<br>");
+
+        info.append( str.indexOf("a") + "<br>");
+        info.append( str.indexOf("陳") + "<br>");
+        info.append( str.indexOf("陳" ,3 ) + "<br>");//5
+        info.append( str.lastIndexOf("陳") + "<br>");//5
+        info.append( str.indexOf("林") + "<br>");//找不到時-1
+
+        info.append(str.split("陳").join(""));//刪除
+        info.append(str.split("陳").join("李"));//替換
+        info.append(str.split("").join("-"));//每個字元中間差一個符號-
+        
+        
+    </script>
+</body>
+</html>

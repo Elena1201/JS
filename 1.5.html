@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.5變數宣告</title>
+</head>
+<body>
+    <script>
+        // 可以把變數中儲放的資料(值)，想成是暫時存放的，而在常數中的資料(值)則是要長期(永久)存放的，一旦給定值後就不會再改變的資料 
+        //你可把常數和變數想像是不同種類的盒子:
+        //常數const/康死/: 裝入東西(值)之後就上鎖的盒子，之後不可以再更動裡面的值
+        //變數let/累/: 暫時存放值的盒子，盒子是打開的，可以更動裡面的值
+
+
+
+        var a= 100;
+
+        let b= 10;//這個b是可變的(變數) b可以再改變其中的值
+            b = 6
+
+        const c = 1;//這個c是不可變的(常數)
+
+        var a = 99;
+
+        console.log("a:" , a);
+        //let b = 12; 不可重複宣告
+
+        // c = 5 不可以再使用 = 重新設定
+
+        // 變數名稱(名稱大多是英文開頭): 1.不可以是數字開頭 2.名稱要取有意義的 3.可以用中文但不建議
+
+        // camel 駝峰式: toString (中間有一個大寫)
+        // snake 蛇:to_string (中間有一個底線) 
+
+//----------------------------------------------------------------
+
+        console.log(shinder);//提升效果
+        // console.log(hihi);//let宣告時，必需宣告後才可以使用變數
+
+        var shinder = 100;//var宣告 window的屬性
+        let hihi = 999;
+
+        console.log(tzuyu);
+        console.log(window.shinder);
+
+        console.log(hihi);
+        console.log(window.hihi);
+
+        //var宣告時特性: 1.全域時，會變成window物件的屬性 2.提升效果
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.7字串的標示方式</title>
+</head>
+<body>
+    
+    <div id="info"></div>
+    <!-- html表達跳脫方式  -->
+    &lt; &nbsp;&nbsp;&nbsp;&nbsp; &gt;
+    <!--   <            >  -->
+    <!--   &lt;  是<       -->
+    <!--   &gt;  是>       -->
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const info = $("info");
+
+        let n= 255;
+        let s="AB"//16進位  a=10 b=11
+        info.append(n.toString(16) + "<br>" )//FF 16進位轉換成 
+        //toString物件轉換成其字串
+        info.append(parseInt(s , 16) + "<br>" )//171 
+
+
+        const name = 'Shinder';
+        const str = `Hello,${name}`;
+
+        $('#info').text( str );
+
+
+        //字串的跳脫表示法\\(倒斜線)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.6基本型別轉換</title>
+</head>
+<body>
+    <input type="text" id="a"> + <input type="text" id="b">
+    <button onclick="cal()">=</button>
+    <div id="info"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
+    <script>
+        function cal(){
+            const a = $("#a").val();
+            const b = $("#b").val();
+
+            // $("#info").html(a(字串) + b(字串)); 沒有做轉換的時候
+
+            $("#info").html(parseInt(a) + parseInt(b));//parseInt將字串轉換成數字
+
+            console.log(parseInt("12aaa"))//一樣會得到12
+
+            $("#info").html(parseFloat(a) + parseFloat(b));//parseFloat轉換成浮點數(後面有小數點)
+
+            $('#info').html( +a + +b );
+
+        }
+    </script>
+</body>
+</html>

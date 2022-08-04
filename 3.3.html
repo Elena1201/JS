@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.3for迴圈</title>
+</head>
+<body>
+    <div id="info"></div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
+    <script>
+
+        const info = $("#info")
+
+        //i = i+1
+        //i++ = i+1
+        for(let i = 0; i < 10; i=i+1 ) {
+            info.append(`<div>${i}</div>`)
+        }   
+        for(let i = 0; i <= 10; i=i+1 ) {
+            info.append(`<div>${i}</div>`)
+        }
+        for(let i = 2; i < 10; i=i+2 ) {
+            info.append(`<div>${i}</div>`)
+        }   
+
+        /**
+         *問題1: 1 ~ 10
+         *問題2: 10 ~ 1
+         *問題3: 2、4、6、8....
+        */
+    </script>
+</body>
+</html>
