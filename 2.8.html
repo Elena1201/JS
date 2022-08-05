@@ -24,12 +24,12 @@
 
         info.append( str.indexOf("a") + "<br>");
         info.append( str.indexOf("陳") + "<br>");
-        info.append( str.indexOf("陳" ,3 ) + "<br>");//5
+        info.append( str.indexOf("陳" ,3 ) + "<br>");//3為一個區間 代表從第三個陳起始找後面第一個
         info.append( str.lastIndexOf("陳") + "<br>");//5
         info.append( str.indexOf("林") + "<br>");//找不到時-1
 
-        info.append(str.split("陳").join(""));//刪除
-        info.append(str.split("陳").join("李"));//替換
+        info.append(str.split("陳").join(""));//刪除陳改空
+        info.append(str.split("陳").join("李"));//陳替換李
         info.append(str.split("").join("-"));//每個字元中間差一個符號-
         
         

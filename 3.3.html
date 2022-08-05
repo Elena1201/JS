@@ -20,23 +20,34 @@
 
         const info = $("#info")
 
+
+        //*問題1: 1 ~ 10
         //i = i+1
         //i++ = i+1
         for(let i = 0; i < 10; i=i+1 ) {
-            info.append(`<div>${i}</div>`)
+            info.append(`<div>${i}</div>`);
         }   
+        info.append(`<div>--------------------------------</div>`);
+
+        //*問題2: 10 ~ 1
         for(let i = 0; i <= 10; i=i+1 ) {
-            info.append(`<div>${i}</div>`)
+            info.append(`<div>${i}</div>`);
         }
-        for(let i = 2; i < 10; i=i+2 ) {
-            info.append(`<div>${i}</div>`)
+        info.append(`<div>---------------------------------</div>`);
+        for(let i=10; i>=1; i--){
+            info.append(`<div>${i}</div>`);
+        }
+        info.append(`<div>---------------------------------</div>`);
+
+        //*問題3: 2、4、6、8....
+        for(let i = 2; i <= 20; i=i+2 ) {
+            info.append(`<div>${i}</div>`);
+        }   
+        info.append(`<div>-------------------------------</div>`);
+        for(let i = 0; i < 10; i++ ) {
+            info.append(`<div>${(i+1)*2}</div>`);
         }   
 
-        /**
-         *問題1: 1 ~ 10
-         *問題2: 10 ~ 1
-         *問題3: 2、4、6、8....
-        */
     </script>
 </body>
 </html>
