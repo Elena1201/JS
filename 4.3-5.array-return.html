@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.3.array-spread </title>
+</head>
+<body>
+    <div id="info"></div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        //以數字排序
+        const info= $("#info");
+        const ar=[3, 2, 7, 5, 1];
+
+        info.append(ar.toString() + "<br>");
+
+        ar.sort(function(a,b){
+            console.log({a,b});
+            //({}) (中括號)是選擇性的比對
+            //回傳值:負值做對調，正值或是0的話就不對調
+            return a-b;// 由小到大排序 給他排序規則，沒給就是照原本排列
+        })
+
+        info.append(ar.toString() + "<br>");
+
+        ar.sort(function(a,b){
+            return b-a;// 由大到小排序
+        })
+        info.append(ar.toString() + "<br>");
+
+    </script>
+</body>
+</html>

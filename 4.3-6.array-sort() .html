@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.3.array-spread </title>
+</head>
+<body>
+    <div id="info"></div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        //物件陣列的排序
+        const info= $("#info");
+
+        let people = [
+            {name:'David' , age:25},
+            {name:'carl' , age:25},
+            {name:'bill' , age:25},
+
+        ];
+
+        const p1 = [...people]//單層複製
+        p1.sort(function(a, b){
+            return a.age - b.age; //年齡由小到大
+        });
+
+        console.log("p1:" , p1);
+        //0: {name: 'David', age: 25}
+        //1: {name: 'carl', age: 25}
+        //2: {name: 'bill', age: 25}
+        //length: 3
+
+
+
+
+        const p2 = [...people]//單層複製
+        p2.sort(function(a, b){
+            return b.age - a.age; //年齡由大到小
+        });
+
+        console.log("p2:" , p2);
+        //0: {name: 'David', age: 25}
+        //1: {name: 'carl', age: 25}
+        //2: {name: 'bill', age: 25}
+        //length: 3
+
+
+
+        const p3 = [...people]
+        p3.sort(function(a, b){
+            return b.name > a.name ? -1 : 1 ; 
+            //三元運算子 姓名字母由小到大 如果b的值大於a它就會必較a跟b的值 ，看是要丟前還是丟後 {由小到大是 1 由大到小是 -1}
+            //（判斷式）?（真true時回傳值 丟前面）:（假fales時回傳值 丟後面）
+        });
+
+        console.log("p3:" , p3);
+        //0: {name: 'David', age: 25}
+        //1: {name: 'bill', age: 25}
+        //2: {name: 'carl', age: 25}
+        //length: 3
+
+
+    </script>
+    </script>
+</body>
+</html>

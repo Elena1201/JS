@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.3-8 forEach() </title>
+</head>
+<body>
+    <div id="info"></div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const info = $("#info");
+
+        let people = [
+            {name:'David' , age:25},
+            {name:'carl' , age:28},
+            {name:'bill' , age315},
+
+        ];
+
+
+        //callback function 回呼函式
+        //不是你呼叫他，是一個程式執行完之後再去執行另一個程式(把函式當作另一個函式的參數，透過另一個函式來呼叫它)
+        people.forEach(function (v , i) {
+            console.log({v, i});
+            //要記得順序(value:值 index:順序)
+            //v = 形式參數 ，自己定義放什麼都可以
+        })
+
+        //function(element, index, array) 要依照順序
+    </script>
+</body>
+</html>

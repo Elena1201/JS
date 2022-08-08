@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.4展開(將物件有的屬性及屬性攤開來)複製，單層複製 </title>
+</head>
+<body>
+    
+    <div id="info"></div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const info= $("#info");
+        const p1 = {
+            name:"bill",
+            age:22,
+            gender:"male",
+        };
+
+        const p2=p1; //參照設定
+        const p3= {...p1}//展開(將物件有的屬性及屬性攤開來)複製，單層複製  一定要大{ }包起來
+
+        p2.name = "david";
+        p3.age = 30;
+
+        console.log(p1);//{name: 'david', age: 22, gender: 'male'}
+        console.log(p2);//{name: 'david', age: 22, gender: 'male'}
+        console.log(p3);//{name: 'bill', age: 30, gender: 'male'}
+    </script>
+
+</body>
+</html>

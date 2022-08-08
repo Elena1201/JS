@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.1local-vars</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const info = $("#info");
+
+        let a= 10;//區域變數
+
+        function func(){
+            //區域變數如果和上層變數同名時,會有遮蔽效果
+            let a = 100;//區域變數
+            info.append(a + "<br>");
+            //找的時候會先找區域變數，如果沒有找到才會去外層找
+        }
+
+        func()
+
+        
+        function func2(a){ 
+            //這邊的a是形式參數，就是區域變數 只會在這個function的區域範圍
+            info.append(a + "<br>");
+            
+        }
+        func2(99)
+    </script>
+</body>
+</html>

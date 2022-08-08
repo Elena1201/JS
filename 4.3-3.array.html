@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2.5三元運算子</title>
+    <title>4.3.array.html</title>
 </head>
 <body>
-    
+    <div id="info"></div>
+
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script>
-        //運算子優先權：單元>算術>關係>邏輯>設定
-        //（判斷式）?（真時回傳值）:（假時回傳值）
-        console.log(5 > 8 ? "a" : "b")
+        const info= $("#info");
+        const ar=[2, 6, 7, "hello", true];//陣列的定義方式 陣列有順序的，資料強調順序的話要用ar
+
+
+        // for/of ES6
+        for(let v of ar){
+            info.append(`${v}<br>`);
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.4-2展開(將物件有的屬性及屬性攤開來)複製，單層複製 </title>
+</head>
+<body>
+    
+    <div id="info"></div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const info= $("#info");
+        const p1 = {
+            name:{
+                first:"john",
+                last:"wick"
+            },
+            age:22,
+            gender:"male",
+        };
+
+        //設定值的類型:number , boolean, string
+
+        const {age, gender} = p1;//展開設定
+        const{ name:{first, last}} = p1;//展開設定，撥開第二層
+
+        console.log({age:age , gender:gender});//舊的寫法 屬性名稱:屬性值 //{age: 22, gender: 'male'}
+
+        console.log({age , gender});//es6的寫法
+
+        console.log({name});//name不會拿到字，因為只有複製第二層 //{name: ''}
+        console.log({first, last});//包裝成物件 //{first: 'john', last: 'wick'}
+    </script>
+
+</body>
+</html>

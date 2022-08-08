@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.functionst</title>
+</head>
+<body>
+    <div id="info"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const info = $("#info");
+
+        info.append(plus(5, 20) + "<br>");
+        info.append(plus(5) + "<br>");
+        info.append(plus() + "<br>");//沒有給預設值
+
+
+
+        //建議先定義好在呼叫
+        //傳統的函式定義，有提升的效果
+        function plus(a=0 , b=10){
+            return a + b;
+        }
+
+        //參數可以用其餘運算子 其餘參數（rest parameter） 語法可以讓我們表示不確定數量的參數，並將其視為一個陣列
+        //如果函式的最後一個命名參數以 ... 開頭，它會被視為一個陣列。
+        function a(...b){
+            info.append(JSON.stringify(b) + "<br>")
+        }
+        a(2,4,6);
+    </script>
+</body>
+</html>
