@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.4JSON</title>
+</head>
+<body>
+    <div id="info"></div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        //  .{ }為物件-object 它儲存的格式為：{ “屬性1” : “ 值 1” ，“屬性2” : “ 值 2” }
+        //  .[ ]為陣列-array 它儲存的格式為 [ “值1”,”值2”,值3]
+        //深層複製
+        //json 可以表達資料 用來做資料交換(object,array,element,string,number) 
+        //JSON它儲存的資料可以是字串、數字、布林[true、false]、陣列[array]、物件{object}等資料格式。它的資料格式最外層是用一個{ }（簡稱物件）包起來
+        const info= $("#info");
+
+        const p1 ={ mame:"bill" , age:21};
+        const p2 ={ mame:"david" , age:26};
+        const p3 ={ mame:"will" , age:32};
+
+        p1.next = p2;
+        p2.next = p3;
+        p3.next = p1;
+        //以上是循環結構
+
+
+
+        // const str = JSON.stringify(p1);
+        //發生錯誤,因為循環的結構不能深層複製
+        //不是所有的情況都能做深層複製，循環結構不能做深層複製
+    </script>
+</body>
+</html>

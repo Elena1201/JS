@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.3.array-spread </title>
+</head>
+<body>
+    <div id="info"></div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const info= $("#info");
+        const ar=[];
+
+        for(let i=1; i<=42; i++){
+            ar.push(i);
+            //ar.unshift(i);
+        }
+
+        info.append(ar.toString()+"<br>");
+        const ar2=[...ar];
+        ar2.reverse();//順序反轉
+
+        info.append(ar2.toString()+"<br>");
+
+        ar.concat(ar2)// ar.concat(ar2)是陣列串接建立新的陣列
+        ar.concat()//單層複製
+
+        
+        ar.includes(42)//有沒有42
+        console.log(ar.includes(42));//true
+
+
+        ar.indexOf(42)//拿到索引值、位置
+        console.log(ar.indexOf(42));//41
+
+
+
+
+        console.log("a" > "b");//fales
+        console.log("aaaaaaaa" > "b");//false因為比第一個字元 就是false
+        //字串在比較的時候是一個一個比對 第一個字元比第二個字元小 那就是小
+
+
+
+        //sort()是個很好用的陣列方法，凡是要把陣列裡面的元素，照我們想排列的方式重新排列都需要用到它。例如在購物網站的商品依價格排列，或是我們看文章時，依照最近的時間排列，都會用到sort()。
+
+        ar.sort();//預設情況是以"字串"為排序
+        info.append(ar.toString() + "<br>");//中文字是以部首去排序
+
+        const ar3= "每天學習一點點，就能積沙成塔。研究顯示，若學生能養成學習的習慣，就更能達成目標。運用學習排程器來空出學習時間，並使用提醒功能".split("");//中文字是以部首去排序
+        ar3.sort();
+        info.append("hihi" + ar3.toString() + "<br>");
+
+        console.log("hihi" + ar3.toString() + "<br>");
+
+
+
+
+    </script>
+</body>
+</html>

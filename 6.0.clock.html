@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2.5三元運算子</title>
+    <title>Document</title>
 </head>
 <body>
-    
+    <div id="info"></div>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script>
-        //運算子優先權：單元>算術>關係>邏輯>設定
-        //（判斷式）?（真時回傳值）:（假時回傳值）
-        console.log(5 > 8 ? "a" : "b")
+        const info = $("#info");
+
+        //=> 箭頭函式
+        setInterval( () => {
+            const now = new Date(); 
+            info.html(now.toString() .split(' ') [4]);
+        } , 1000 )
+
+        //now.toString() 先轉化成字串
+        //.split(' ')再將切片字串
+        
     </script>
 </body>
 </html>

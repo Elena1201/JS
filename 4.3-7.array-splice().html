@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.3-7.array-splice() </title>
+</head>
+<body>
+    <div id="info"></div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const info = $("#info");
+        const str = "abcdefghij";
+        const ar=str.split("");
+        let br = [...ar];
+
+        info.append(br.splice(2,3) + "<br>" );//在索引2的位置移除3個元素
+        info.append(br + "<br>" );
+        info.append("------------<br>" );
+
+        br = [...ar];
+        info.append(br.splice(2, 0, 12, 34) + "<br>");
+        //拿到一個空的陣列 
+        //0會印出空的陣列(因為0，沒有任何移除元素( = 移出 0 個元素))
+        //在索引2的位置插入2個元素，分別是12、34 
+        info.append(br + "<br>" );
+        info.append("------------<br>" );
+
+        br = [...ar];
+        info.append(br.splice(2, 2, 12, 34) + "<br>");//取代
+        info.append(br + "<br>" );
+        info.append("------------<br>" );
+
+
+    </script>
+</body>
+</html>

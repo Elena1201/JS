@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.3.array.html</title>
+</head>
+<body>
+    <div id="info"></div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const info= $("#info");
+        const ar=[2, 6, 7, "hello", true];//陣列的定義方式 陣列有順序的，資料強調順序的話要用ar
+
+        ar[9]="shin";//索引值最好是連續的
+        ar[-2]="der";//用陣列的時候不要用奇怪的索引，不要用正整數以外的索引，也不要用負的 這是屬於obj的寫法
+        ar["hi"]="Hello";//key不要用字串 這是屬於obj的寫法
+
+
+        console.log(ar[ar.length-1]);//最後一個元素
+
+        info.append(ar.length+`<br>`)//拿到的是最大索引值加一，不是裡面有幾個
+        info.append(`---------------------------------<br>`);
+
+        //不建議使用 for loop
+        for(let i=0; i<ar.length; i++){
+            info.append(`${i}:${ar[i]}<br>`);
+        }
+        info.append(`---------------------------------<br>`);
+
+        for(let s in ar){
+            info.append(`${s}:${ar[s]}<br>`);
+        }
+        info.append("------------------------------------<br>");
+        info.append(ar[2]+"<br>");
+        info.append(ar["2"]+"<br>");
+
+        //有變數的時候要用``   字串使用 " "  ' '  ` ` 都可以
+    </script>
+</body>
+</html>

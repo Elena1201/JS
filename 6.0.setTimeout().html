@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2.5三元運算子</title>
+    <title>6.0.setTimeout()</title>
 </head>
 <body>
-    
-
+    <div id="info"></div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script>
-        //運算子優先權：單元>算術>關係>邏輯>設定
-        //（判斷式）?（真時回傳值）:（假時回傳值）
-        console.log(5 > 8 ? "a" : "b")
+        const info = ("#info");
+        console.log(new Date());
+        //setTimeout 一個執行的計時器 時間道就出發 只會執行一次 執行完一次就結束
+        setTimeout(function() {
+            console.log(new Date());
+            info.html("abc");
+        }, 2000);//2000為毫秒 2秒後執行一次後不再執行
     </script>
 </body>
 </html>

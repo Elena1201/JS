@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.0-2.move</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 800px;
+            /* border: 1px solid rgb(255, 181, 170); */
+            background-color: rgb(225, 225, 206);
+        }
+        .ball{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: thistle;
+            /* border: 1px solid #aaf; */
+        }
+        .ball2{
+            top: 80px;
+            background-color: rgb(191, 201, 216);
+        }
+        .ball3{
+            top: 160px;
+            background-color: indianred;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="Mygo()">go</button>
+    <button onclick="Mystop()">stop</button>
+    <div class="rect">
+        <div class="ball"></div>
+        <div class="ball ball2" ></div>
+        <div class="ball ball3"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        let iid; //iid全域變數
+
+        const balls = $(".ball")
+
+        function Mygo(){
+            iid=setInterval(() => {
+                balls.each((i, el) => {       //讓每一顆球跑的不一樣
+                    $(el).css("left" , "+=" + (1 + parseInt(Math.random()*3) ) );
+                });
+            },30)
+        }
+
+        function Mystop(){
+            clearInterval(iid);
+        }
+
+        //go() stop() 最好取名+My 因容易和window衝突 所以最好在前面+My...
+    </script>
+</body>
+</html>

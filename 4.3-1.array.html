@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.3.array.html</title>
+</head>
+<body>
+    <div id="info"></div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const info= $("#info");
+        const ar=[2, 6, 7, "hello", true];//陣列有順序的，資料強調順序的話要用ar
+
+        info.append( ar.length + "<br>");//知道陣列的長度 //5
+        info.append( ar + "<br>");
+        info.append( ar.toString() + "<br>");//將ar=[2, 6, 7, "hello", true]轉換成字串 //2,6,7,hello,true
+        info.append( ar);// 沒有轉換成字串的話，不會有逗號出現 就只是陣列  //267hellotrue 陣列將267hellotrue放進去而已
+        info.append("<br>");
+
+        console.log(ar);
+    </script>
+</body>
+</html>

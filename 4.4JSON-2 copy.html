@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.4JSON</title>
+</head>
+<body>
+    <div id="info"></div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        //  .{ }為物件-object 它儲存的格式為：{ “屬性1” : “ 值 1” ，“屬性2” : “ 值 2” }
+        //  .[ ]為陣列-array 它儲存的格式為 [ “值1”,”值2”,值3]
+        //深層複製
+        //json 可以表達資料 用來做資料交換(object,array,element,string,number) 
+        //JSON它儲存的資料可以是字串、數字、布林[true、false]、陣列[array]、物件{object}等資料格式。它的資料格式最外層是用一個{ }（簡稱物件）包起來
+        const info= $("#info");
+
+        const ar=[12, 99, "aaa", ["bill", 25, "male"] ];
+        const ar2 = [...ar];
+        const ar3 = JSON.parse(JSON.stringify(ar));//深層複製
+
+
+        ar[0] = 100;
+        ar[3][0] = 'Alex';//三裡面的第一個[0]
+
+        console.log(ar2);
+        info.append(JSON.stringify(ar2) + "<br>");//轉換成JSON
+
+        console.log(ar3);
+        info.append(JSON.stringify(ar3) + "<br>");//轉換成JSON
+
+    </script>
+</body>
+</html>
