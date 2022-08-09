@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5.functionst</title>
+    <title>Document</title>
 </head>
 <body>
     <div id="info"></div>
@@ -15,18 +15,15 @@
     <script>
         const info = $("#info");
 
-        //ar自己取名的
-        function pop(ar){   //ar式形式參數 裡面沒有給東西
-        return ar.pop()
-        }
+        //=> 箭頭函式
+        setInterval( () => {
+            const now = new Date(); 
+            info.html(now.toString() .split(' ') [4]);
+        } , 1000 )
 
-        const ar1 = [1,3,5,7];
-        pop(ar1); //實際參數 實際裡面有給東西
-
-        //傳址呼叫，傳遞參照呼叫
-        //number,bollean,string: 傳值呼叫 將值給它
-
-        info.append(JSON.stringify(ar1) + "<br>");
+        //now.toString() 先轉化成字串
+        //.split(' ')再將切片字串
+        
     </script>
 </body>
 </html>
