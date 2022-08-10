@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-random-balls-color</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            text-align: center;
+            border: 1px solid rgb(240, 143, 24);
+            background-color: rgb(220, 200, 255);
+        }
+        .ball{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            color: white;
+            background-color: rgba(254, 165, 113, 0.955);
+            border: 1px solid rgb(211, 165, 176);
+            border-radius: 50%;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <!-- <div class="ball">88</div> -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const rect = $(".rect");
+        const ballNum =12;
+        const angUnit = Math.PI*2/ballNum;//算球根球之間的角度
+        
+        for(let i=0; i<ballNum; i++ ){
+            const b = $(`<div class="ball">${i+1}</div>`);//建立元素
+
+            b.css({
+            left: 400 -25+250 * Math.cos(i*angUnit - Math.PI/3),
+            top:300-250 * Math.sin(i*angUnit - Math.PI/3)
+        });
+        rect.append(b);
+        }
+
+    </script>
+</body>
+</html>

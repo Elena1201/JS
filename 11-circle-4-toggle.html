@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>08-random-balls-color</title>
+    <style>
+        .rect {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        text-align: center;
+        border: 1px solid rgb(240, 143, 24);
+        background-color: rgb(232, 219, 255);
+        }
+        .ball {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        color: white;
+        background-color: rgba(255, 161, 161, 0.955);
+        border: 1px solid rgb(211, 165, 176);
+        border-radius: 50%;
+        line-height: 50px;
+        transition: 400ms;
+        }
+        .big-ball {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        color: bisque;
+        background-color: #faa;
+        text-align: center;
+        border-radius: 50%;
+        line-height: 80px;
+        left: 360px;
+        top: 260px;
+        border: 1px solid rgb(211, 165, 176);
+        cursor: pointer;
+        }
+    </style>
+    </head>
+    <body>
+    <div class="rect">
+        <div class="big-ball">click</div>
+    </div>
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"
+    ></script>
+
+    <script>
+        const rect = $(".rect");
+        const bigBall = $(".big-ball");
+      let isOpend = false; //一開始的狀態是收起來的 const是不能
+
+        const ballNum = 12;
+      const angUnit = (Math.PI * 2) / ballNum; //算球根球之間的角度
+        const balls = [];
+
+        for (let i = 0; i < ballNum; i++) {
+        const b = $(`<div class="ball">${i + 1}</div>`); //建立元素
+
+        b.css({
+            left: 400 - 25,
+            top: 300 - 25,
+        });
+        balls.push({
+          el: b, //element一剛開始的位置
+          bx: 400 - 25, //未展開的x位置 //begin(x, y)
+          by: 300 - 25, //未展開的y位置
+          ex: 400 - 25 + 250 * Math.cos(i * angUnit), //展開來的x位置  end(x, y)
+          ey: 300 - 25 + 250 * Math.sin(250 * Math.sin(i * angUnit)),
+        });
+        rect.append(b);
+        }
+        rect.append(bigBall);
+      //因為js是從上讀取到下 <div class:bigBall> js寫在最下面會最後一個讀取 所以會在最上面一層
+
+        bigBall.on("click", function () {
+        isOpend = !isOpend; //點了開啟，再點一次收合
+
+        balls.forEach(function (obj, i) {
+          let tx, ty; //target(x ,y)
+            if (isOpend) {
+            tx = obj.ex;
+            ty = obj.ey;
+            } else {
+            tx = obj.bx;
+            ty = obj.by;
+            }
+            setTimeout(function () {
+            obj.el.css({
+                left: tx,
+                top: ty,
+            });
+          }, 100 * i);
+        });
+        });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clock{
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-color: rgb(255, 239, 218);
+            border: 1px solid rgb(255, 220, 184);
+            border-radius: 50%;
+        }
+        .hand{
+            position: absolute;
+            left: 300px;
+            top: 300px;
+            /* border: 1px solid #000; */
+            
+        }
+        .sec-hand{
+            position: absolute;
+            width: 3px;
+            height: 300px;
+            background-color: cadetblue;
+            left: -2px;
+            top: -300px;
+            border: 1px;
+        }
+        .min-hand{
+            position: absolute;
+            width: 10px;
+            height: 230px;
+            background-color: rgb(95, 96, 160);
+            left: -5px;
+            top: -220px;
+            border-radius: 5px ;
+        }
+        .hr-hand{
+            position: absolute;
+            width: 20px;
+            height: 170px;
+            background-color: rgb(160, 95, 95);
+            left: -10px;
+            top: -165px;
+            border-radius:10px ;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hand" id="sec-hand">
+            <div class="sec-hand"></div>
+        </div>
+        <div class="hand" id="min-hand">
+            <div class="min-hand"></div>
+        </div>
+        <div class="hand" id="hr-hand">
+            <div class="hr-hand"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const secHand = $("#sec-hand");
+        const minHand = $("#min-hand");
+        const hrHand = $("#hr-hand");
+
+        function runClock(){
+            const now = new Date; //當下的時間
+            let sec = now.getSeconds();
+            let msec = now.getMilliseconds();
+            let min = now.getMinutes();
+            let hr = now.getHours();
+
+            secHand.css("transform" , `rotate(${sec*6 + 6/1000*msec }deg)`);
+            minHand.css("transform" , `rotate(${min*6}deg)`);
+            hrHand.css("transform" , `rotate(${hr*30 + min *.5}deg)`);//min *.5 補差
+
+            setTimeout(runClock, 30);//這邊是30毫秒更新一次 也可以寫24(人眼視覺)
+            // setTimeout(runClock, 1000);//一秒動一次
+        }
+        runClock();
+        
+    </script>
+</body>
+</html>
