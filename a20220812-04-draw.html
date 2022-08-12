@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-draw</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid gray;
+            background-color: #3b3b3b;
+            overflow: hidden;
+        }
+
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(255, 150, 30);
+            border-radius: 50%;
+            pointer-events: none; /* 不感應滑鼠動作 */
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
+    <script>
+        const rect = $(".rect");
+
+        rect.on("mousemove" , function(event){
+            const x = event.offsetX;
+            const y = event.offsetY;
+
+            const b = $(`<div class="ball"></div> `);
+            b.css({
+                left:x-10, //校正圓心
+                top:y-10,
+            });
+            rect.append(b);
+        })
+    </script>
+</body>
+</html>

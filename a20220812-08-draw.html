@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a20220812-07-draw</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid rgb(240, 143, 24);
+            background-color: rgb(220, 200, 255);
+        }
+        .ball{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            color: white;
+            background-color: rgba(254, 165, 113, 0.955);
+            border: 1px solid rgb(211, 165, 176);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <!-- <div class="ball">88</div> -->
+    </div>
+    <button onclick="getData()">get data</button>
+    <br>
+    <textarea  id="ta" cols="80" rows="30"></textarea>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const rect = $(".rect");
+        const data= [];
+
+        function randomColor(){
+            let c ="00000" + Math.floor(16777216*Math.random()).toString(16);
+            return "#" + c.slice(c.length - 8);
+        }
+        
+        const mDown = event=>{    //滑鼠按下去的時候執行
+            rect.on("mousemove", mMove)
+        }
+
+        const mUp = event=>{     //滑鼠放開的時候不執行
+            rect.off('mousemove', mMove);
+    };
+
+        const mMove = event=>{
+            const size = 10 + Math.floor(21*Math.random());
+            const x = event.offsetX;
+            const y = event.offsetY;
+            const bgc = randomColor();
+
+            const b = $(`<div class="ball"></div> `);
+            b.css({
+                backgroundColor:bgc,
+                width:size,
+                height:size,
+                left:x, //校正圓心
+                top:y,
+            });
+            rect.append(b);
+            data.push({
+                x, y, bgc, size
+            });
+
+        };
+
+
+        rect.on("mousedown", mDown); //滑鼠按下去的時候才會觸發執行
+        // rect.on("mouseup", mUp);  //滑鼠放開的時候不執行 但因為滑鼠按著跑出去會有bug所以改寫下面這一行
+        $(window).on("mouseup",mUp); //注意$(window)要包裝成JQ的寫法
+        
+        
+        function getData(){
+            const ta = document.querySelector('#ta');
+            ta.value = JSON.stringify(data, null, 4);
+        }
+        
+        
+    </script>
+</body>
+</html>
