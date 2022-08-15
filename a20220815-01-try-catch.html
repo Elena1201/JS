@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try-catch</title>
+</head>
+<body>
+    
+
+    <script>
+        const str1 = '{"name" : "shin" }';
+        const str2 = '{"name" : "shin }'; //Error
+
+        // let obj  = JSON.parse(str1) 如要執行 外面要再使用let宣告
+        try {
+            // obj = JSON.parse(str1); 但如果沒有寫const寫 這一行還是會執行
+            const obj = JSON.parse(str1);
+            console.log(obj);
+        }catch(error){
+            console.log({error});
+        }
+
+        console.log(obj); //const宣告在大{}裡面只會在大{}裡面執行，如要執行 外面要再使用let宣告
+    </script>
+</body>
+</html>

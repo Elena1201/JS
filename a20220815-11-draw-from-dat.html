@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-draw-from-data</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid rgb(240, 143, 24);
+            background-color: rgb(220, 200, 255);
+        }
+        .ball{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            color: white;
+            background-color: rgba(254, 165, 113, 0.955);
+            border: 1px solid rgb(211, 165, 176);
+            border-radius: 50%;
+            pointer-events: none;
+            /* 不感應滑鼠動作 */
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="loadData()">
+        load data
+    </button>
+
+    <div class="rect"></div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        let data;
+        const rect = $(".rect");
+        
+        
+        function drawBall({x, y, bgc, size}){
+            const b = $(`<div class="ball"></div>`); // 建立元素
+            b.css({
+                backgroundColor: bgc,
+                width: size,
+                height: size,
+                left: x,
+                top: y
+            });
+            rect.append(b);
+        }
+
+        let i = 0;
+        function doRun(){
+            if(data[i]){
+                drawBall(data[i]);
+                setTimeout(doRun, 0);
+                i++;
+            }
+        }
+        //doRun();
+
+        function loadData(){
+            $.get("data/data.json" , function(data1){
+                data = data1; //區域變數設定給全域變數 //data = data1方向不能交換
+                doRun();
+            } , "json")
+        }
+
+        
+    </script>
+</body>
+</html>
