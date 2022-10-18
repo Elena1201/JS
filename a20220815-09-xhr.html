@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX xhr.html (運用在購物車 商品加新)</title>
+</head>
+<body>
+    <input type="text">
+    <button onclick="loadData()">load data</button>
+    <div id="info"></div>
+
+    <script>
+        const info= document.querySelector("#info");
+
+        function loadData(){
+            const xhr = new XMLHttpRequest();
+            console.log("--------------------1");
+            xhr.onload = function () {
+                console.log("----------------2");
+                info.innerHTML = xhr.responseText;
+            }
+            //onload 資料回來的時候才會觸發
+
+            xhr.open("GET" , "data/mydata01.txt"); //設定
+            xhr.send(); //發送request (請別人幫我買飲料，我繼續做我自己的事(就是AJAX非同步))
+            console.log("-------------------3");
+        }
+        //順序是 1-> 3-> 2 
+    </script>
+</body>
+</html>

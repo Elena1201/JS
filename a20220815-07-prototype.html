@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype舊的物件導向</title>
+</head>
+<body>
+    
+
+    <script>
+        //obj小寫 單單只是obj1個體(物件)
+        const obj1={
+            name:"David",
+            age:27
+        };
+        //Object 是類型
+        console.log(obj1.toString());
+        Object.prototype.toString = function(){
+            return JSON.stringify(this);
+        };
+        console.log(obj1.toString());
+    </script>
+</body>
+</html>

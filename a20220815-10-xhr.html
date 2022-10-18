@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用JQ寫 jQuery.get()</title>
+</head>
+<body>
+    <input type="text">
+    <button onclick="loadData()">load data</button>
+    <div id="info"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const info = $("#info");
+
+        function loadData(){
+
+            // 第一步:先執行
+            console.log('--------------1');
+
+            //第二步:呼叫
+            $.get("data/mydata01.txt" , function(data){
+                //最後第四步:才會回傳資料 console.log('--------------2');
+                console.log('--------------2');
+                info.html(data);
+                
+            });
+
+            //第三步:執行
+            console.log('--------------3');
+        }
+
+        //jQuery.get( url [, data ] [, success ] [, dataType ] )這邊會放四種參數
+        //data是形式參數
+    </script>
+</body>
+</html>

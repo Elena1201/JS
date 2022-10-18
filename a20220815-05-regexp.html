@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>	regexp</title>
+</head>
+<body>
+    <script>
+
+        //^字首 給一個限制 $字尾限制在前面 a-z符合{2}個英文字母 後面的數字符合{8} /i大小寫都可以 
+
+        // ^開頭，如multiline flag 被設為 true，則會匹配換行字元後
+
+        //  /d吻合數字，寫法等同於 [0-9] 
+        
+        // {8}規定符號確切發生的次數，若字串擁有 8 個以上 "caaandy" 還是只會認前面 8 個
+
+        const pattern = /^[a-z]{2}\d{8}$/i;
+        const strs = [
+            'AH1234567890',
+            'BAH12345678',
+            'AH12345678',
+            '123AH1234567890',
+        ];
+
+        for(let v of strs){
+            console.log(v, pattern.test(v));
+        }
+        //AH1234567890 false
+        //BAH12345678 false
+        //   /^pos/字首  /ring$/字尾
+
+        //AH12345678 true (符合自首[a-z]{2}個英文字母 然後又符合\後面字元d{8}個數字$ /i英文大小寫都可以)
+        //123AH1234567890 false
+    </script>
+</body>
+</html>
